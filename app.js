@@ -44,12 +44,6 @@ function buscarNombreRepetido(arregloNombre, nombre)
         alert(`El nombre ${nombre} ya esta en la lista de amigos`);
         return true;
     }
-    
-    /* for (let i = 0; i < arregloNombre.length; i++) {        
-        if (arregloNombre[i].toUpperCase() === nombre.toUpperCase()) {         
-            return true;           
-        }
-    } */
     return false;
 }
 
