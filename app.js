@@ -29,7 +29,7 @@ function validarNombre(nombre)
         return true;
     else
     {
-        alert("Debe ingresar un nombre valido/no vacio");
+        alert("Por favor, inserte un nombre.");
         return false;
     }
 }
@@ -51,11 +51,11 @@ function buscarNombreRepetido(arregloNombre, nombre)
 //funcion que crea la lista de amigos
 function crearListaAmigos()
 {
-    let lista = document.getElementById("listaAmigos");
-    limpiarElementoUl("listaAmigos");
+    let lista = document.getElementById("listaAmigos");  
     for (let i = 0; i < amigos.length; i++) {
         let li = document.createElement("li");
-        li.appendChild(document.createTextNode(amigos[i]));
+        //li.appendChild(document.createTextNode(amigos[i]));
+        li.innerHTML =amigos[i];
         lista.appendChild(li);
     }
 }
@@ -67,15 +67,15 @@ function agregarAmigo() {
     let nombre = capturarEntrada("amigo").value.trim();    
     //validar que el nombre no este vacio    
     limpiarEntrada("amigo");    
-    if ((buscarNombreRepetido(amigos, nombre)) || (!validarNombre(nombre))  )
+    //validar que el nombre no este repetido en la lista de amigos y que no este vacio
+    if ((!buscarNombreRepetido(amigos, nombre)) && (validarNombre(nombre)) )
     {           
-        return;
-    }
-    else{       
        amigos.push(nombre);       
+       limpiarElementoUl("listaAmigos");
        crearListaAmigos();
        limpiarElementoUl("resultado");
     }
+    return;
     
 }
 
@@ -89,7 +89,8 @@ function sortearAmigo()
         let lista = document.getElementById("resultado");
         limpiarElementoUl("resultado");    
         let li = document.createElement("li");
-        li.appendChild(document.createTextNode(`El amigo secreto es: ${amigos[Math.floor(Math.random() * amigos.length)]}`));
+        //li.appendChild(document.createTextNode(`El amigo secreto es: ${amigos[Math.floor(Math.random() * amigos.length)]}`));
+        li.innerHTML = `El amigo secreto es: ${amigos[Math.floor(Math.random() * amigos.length)]}`;
         lista.appendChild(li);
         amigos = [];
     }
