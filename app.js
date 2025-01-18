@@ -39,11 +39,17 @@ function validarNombre(nombre)
 //funcion no solicitada en el desafio
 function buscarNombreRepetido(arregloNombre, nombre)
 {       
-    for (let i = 0; i < arregloNombre.length; i++) {        
+    
+    if (arregloNombre.includes(nombre)) {
+        alert(`El nombre ${nombre} ya esta en la lista de amigos`);
+        return true;
+    }
+    
+    /* for (let i = 0; i < arregloNombre.length; i++) {        
         if (arregloNombre[i].toUpperCase() === nombre.toUpperCase()) {         
             return true;           
         }
-    }
+    } */
     return false;
 }
 
