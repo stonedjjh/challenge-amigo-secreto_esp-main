@@ -81,14 +81,18 @@ function agregarAmigo() {
 
 function sortearAmigo()
 {
-    if (amigos.length < 2)
-        return alert("Debe ingresar al menos dos amigos");
+    if (amigos.length < 2){        
+        alert("Debe ingresar al menos el nombre de dos amigos");
+        return;
+
+    }
     else
     {
         limpiarElementoUl("listaAmigos");
         let lista = document.getElementById("resultado");
         limpiarElementoUl("resultado");    
         let li = document.createElement("li");
+        //Yo lo haria asi pero el ejercicio pide que se haga con innerHTML
         //li.appendChild(document.createTextNode(`El amigo secreto es: ${amigos[Math.floor(Math.random() * amigos.length)]}`));
         li.innerHTML = `El amigo secreto es: ${amigos[Math.floor(Math.random() * amigos.length)]}`;
         lista.appendChild(li);
